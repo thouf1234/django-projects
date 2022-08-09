@@ -1,0 +1,21 @@
+{%extends 'blog/base.html'%}
+{%block title_block%}BMD's BLOG HOME{%endblock%}
+{%block content%}
+<h1>MOHAMED THOUFEEQ's BLOG</h1>
+{%if tag%}<!--tag is not None the the condition is true-->
+  <h2>Posts Tagged with "{{tag.name}}"
+{%endif%}
+{%for post in post_list%}
+<a href="{{post.get_absolute_url}}"><h2>{{post.title}}</h2></a>
+<p id='date'>Published  on {{post.updated}} by {{post.author | title}}</p>
+<p id='tags'>Tags:
+  {%for tagg in post.tags.all%}
+  <!--  <a href="/index/home/{{tagg.slug}}">{{tagg}}</a> use this or the obe below both works fine -->
+  <a href="{%url 'post_list_url' tagg.slug%}">{{tagg}}</a><!--this is one of the method of giving url-->
+  {%if not forloop.last%},{%endif%}
+  {%endfor%}
+</p>
+{{post.body|truncatewords:30|linebreaks}}
+{%endfor%}
+{%include 'blog/pagination.html' with page=post_list%}<!--to implement class based view change post_list to page_obj as it is the default pagenation object in class view having parent ListView-->
+{%endblock%}

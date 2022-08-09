@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{%extends 'firstApp/base.html'%}
+{%block body_block%}
+<h1>Books Information With Customized Template Name</h1>
+{% if book_crud_cdv_model_list %}
+<table border="2">
+  <thead>
+    <th>TITLE</th>
+    <th>AUTHOR</th>
+    <th>PAGES</th>
+    <th>PRICE</th>
+  </thead>
+  {% for bk in book_crud_cdv_model_list %}
+    <tr>
+      <td>{{bk.title}}</td>
+      <td>{{bk.author}}</td>
+      <td>{{bk.pages}}</td>
+      <td>{{bk.price}}</td>
+    </tr>
+    {% endfor %}
+</table><br><br>
+{% else %}
+<h1>NO BOOK RECORD FOUND</h1>
+{% endif %}
+{%endblock%}

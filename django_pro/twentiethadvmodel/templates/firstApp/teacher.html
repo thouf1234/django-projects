@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{%extends 'firstApp/base.html'%}
+{%block body_block%}
+<h1>Teacher Information Dashboard</h1>
+{% if teacher %}
+<table border="2">
+  <thead>
+    <th>Teacher Name</th>
+    <th>Teacher Email</th>
+    <th>Teacher Address</th>
+    <th>Teacher Subject</th>
+    <th>Teacher Salary</th>
+  </thead>
+  {% for tch in teacher %}
+    <tr>
+      <td>{{tch.name}}</td>
+      <td>{{tch.email}}</td>
+      <td>{{tch.address}}</td>
+      <td>{{tch.subject}}</td>
+      <td>{{tch.salary}}</td>
+    </tr>
+    {% endfor %}
+</table><br><br>
+{% else %}
+<h1>NO TEACHER RECORD FOUND</h1>
+{% endif %}
+{%endblock%}

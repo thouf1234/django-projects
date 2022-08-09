@@ -1,0 +1,11 @@
+body .container{
+  background: red;
+  color: white;
+}
+h1,p{
+  text-align: center;
+}
+table, th, td {
+  border: 1px solid red;
+  margin: auto;
+}

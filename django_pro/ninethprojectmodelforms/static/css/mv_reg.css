@@ -1,0 +1,29 @@
+body{background: url(https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&w=600);
+background-repeat: no-repeat;
+background-size: cover;
+}
+.container .jumbotron{
+margin-top:200px;
+background: orange;
+color:white;
+ font-family: 'Merriweather', serif;
+}
+table, th, td{
+ border:1px solid #ccc;
+ margin:auto;
+}
+td{
+ font-size: 25px;
+ color:white;
+ background:red;
+ margin:auto;
+}
+thead,th{
+  font-size: 30px;
+  color:blue;
+  background:yellow;
+  margin:auto;
+  }
+h1{
+  text-align: center;
+}

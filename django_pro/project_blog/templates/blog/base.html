@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%load blog_cust_temp_tag%}
+{%load static%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/blog.css"%}"><!--use control+f5 if the static changes is not updated in the web page view (giving control+f5 will crear the cache files)-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style media="screen">
+      span{
+        color: red;
+      }
+    </style>
+    <title>{%block title_block%}{%endblock%}</title>
+  </head>
+  <body>
+    <div class="content">
+      {%block content%}
+      {%endblock%}
+      </div>
+      <div class="sidebar">
+        <h2>MOHAMED THOUFEEQ's BLOG</h2>
+        <p>Total Number Of Published Posts Upto Today:<span id="no_of_post">{%total_posts%}</span></p><!--total_post is a custom template inside templatetags.blog_cust_temp_tag.py-->
+        <h3>Latest Post: </h3>{%show_latest_post 4%}<!--here you can give argument to the count parameter-->
+        <!--<h3>Most Commented Post: </h3>{%get_most_commented_post 4%} (this is eveloped by mohamed thoufeeq)-->
+        <h3>Most Commented Post: </h3>{%get_top_commented_post 4 as top_commented_post%}<!-- you can pass the argument here itself-->
+        <ul>
+          {%for post in top_commented_post %}
+          <li><a href="{{post.get_absolute_url}}"><h2>{{post.title}}</h2></a></li>
+          {%endfor%}
+        </ul>
+      </div>
+  </body>
+</html>

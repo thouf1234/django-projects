@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% for r in data %}
+    <ul>
+      <li>{{r.name | title}}</li>
+      <li>{{r.subject | title}}</li>
+      <li>{{r.dept | title}}</li>
+      <li>{{r.date | title}}</li>
+      </ul>
+      {% endfor %}
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div>
+    <h1>Your Shoping Cart Information:</h1><br>
+    {% if request.session %}
+    <table border="2">
+      <thead>
+        <th>Item Name</th>
+        <th>Quantity</th>
+      </thead>
+      {% for key,value in request.session.items %}
+        {% if key != '_session_expiry' %}
+          <tr>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>session information is not available</p>
+    {% endif %}
+    <a class="btn btn-primary btn-lg" href="/index/del" role="button">DELETE ITEM</a>
+  </div>
+  </body>
+</html>

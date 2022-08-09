@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{%extends 'firstApp/base.html'%}
+{%block body_block%}
+<h1>Update Employee Information Dashboard</h1>
+<table border="2">
+  <form method="post">
+    {%csrf_token%}
+        E_NO:<input type="text" name="eno" value="{{form.eno}}"><br>
+        E_NAME:<input type="text" name="ename" value="{{form.ename}}"><br>
+        E_SALARY:<input type="text" name="esal" value="{{form.esal}}"><br>
+        E_ADDRESS:<input type="text" name="eadd" value="{{form.eadd}}"><br>
+    <input type="submit" name="" value="Update Employee">
+  </form>
+  {%csrf_token%}
+{%endblock%}

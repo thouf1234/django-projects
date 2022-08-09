@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{%extends 'firstApp/base.html'%}
+{%block body_block%}
+<h1>Student Information Dashboard</h1>
+{% if student %}
+<table border="2">
+  <thead>
+    <th>Student Name</th>
+    <th>Student Email</th>
+    <th>Student Address</th>
+    <th>Student Rollno</th>
+    <th>Student Marks</th>
+  </thead>
+  {% for std in student %}
+    <tr>
+      <td>{{std.name}}</td>
+      <td>{{std.email}}</td>
+      <td>{{std.address}}</td>
+      <td>{{std.rollno}}</td>
+      <td>{{std.marks}}</td>
+    </tr>
+    {% endfor %}
+</table><br><br>
+{% else %}
+<h1>NO STUDENT RECORD FOUND</h1>
+{% endif %}
+{%endblock%}

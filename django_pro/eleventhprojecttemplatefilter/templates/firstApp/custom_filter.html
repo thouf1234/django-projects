@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load cust_filter %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% for r in data %}
+    <ul>
+      <li>{{r.name | newfilter_slice5_aliasname }}</li>
+      <li>{{r.subject | newfilter_slice_n_aliasname:3}}</li>
+      <li>{{r.dept | newfilter_slice_n_aliasname:2}}</li>
+      <li>{{r.date | title}}</li>
+      </ul>
+      {% endfor %}
+  </body>
+</html>

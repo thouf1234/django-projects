@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% for r in data %}
+    <ul>
+      <li>{{r.name | add:' --TOPPER'}}</li>
+      <li>{{r.subject}}</li>
+      <li>{{r.dept}}</li>
+      <li>{{r.date}}</li>
+      </ul>
+      {% endfor %}
+  </body>
+</html>

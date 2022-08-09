@@ -1,0 +1,12 @@
+table, th, td {
+  border: 1px solid red;
+  margin: auto;
+}
+body{
+  background: url(https://images.unsplash.com/photo-1652466380685-c552233a941a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyN3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1{
+  text-align: center;
+}

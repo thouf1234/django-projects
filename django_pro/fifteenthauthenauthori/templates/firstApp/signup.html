@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/mv_reg.css"%}">
+    <title></title>
+  </head>
+  <body>
+    <div class = 'container'>
+      <h1>SignUp to Enjoy Facilities </h1>
+      <form method="post">
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type= 'submit' class="btn btn-primary" value="SignUp">
+      </form>
+    </div>
+  </body>
+</html>

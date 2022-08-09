@@ -1,0 +1,5 @@
+<ul>
+  {%for post in final%}
+  <li><a href="{{post.get_absolute_url}}"><h2>{{post.title}}</h2></a></li>
+  {%endfor%}
+</ul><br/>

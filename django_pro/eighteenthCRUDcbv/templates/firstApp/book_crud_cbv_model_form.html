@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{%extends 'firstApp/base.html'%}
+{%block body_block%}
+<h1>Create Book Entry</h1>
+<form method="post">
+  {{form.as_p}}
+  {%csrf_token%}
+  <input type="submit" class="btn btn-lg btn-primary" value="Insert/Update Book">
+</form>
+{%endblock%}

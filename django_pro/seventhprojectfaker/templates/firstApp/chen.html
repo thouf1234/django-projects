@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="{% static "css/style.css"%}">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% if chennaiviewsdata %}
+    <table>
+      <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Role</th>
+        <th>Eligibility</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone</th>
+      </thead>
+      {% for data in chennaiviewsdata %}
+        <tr>
+          <td>{{data.date}}</td>
+          <td>{{data.company}}</td>
+          <td>{{data.role}}</td>
+          <td>{{data.eligibility}}</td>
+          <td>{{data.address}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.phone}}</td>
+      {% endfor %}
+    </table>
+    {% else %}
+    <h1>NO CHENNAI JOB RECORD FOUND</h1>
+  {% endif %}
+
+  </body>
+</html>

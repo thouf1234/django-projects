@@ -1,0 +1,36 @@
+{%extends 'blog/base.html'%}
+{%block title_block%}{{post.title}}{%endblock%}
+{%block content%}
+<h1>{{post.title}}</h1>
+<p id='date'>Published  on {{post.updated}} by {{post.author | title}}</p>
+<div class="postbody">
+{{post.body|linebreaks}}
+</div>
+<div class='container' align='center'>
+<a href="{{post.mail_absolute_url}}" class="btn btn-lg btn-success"target="_blank">Share By Email</a><!--target =_blank will open new tab when the button is clicked-->
+</div>
+{%with comments.count as comments_count%}<!--adding alias name-->
+  <h2>{{comments_count}}Comment{{comments_count|pluralize}}</h2><br/><br/><!--to give comments for 0 or 2 or more than 2 comments and to give comment for 1 comment i.e. adding s at the end-->
+{%endwith%}
+{%if comments%}
+  {%for comment in comments%}
+    <p id="comments">Comment {{forloop.counter}} by {{comment.name}} on {{comment.created}}</p>
+    <div class="commentbody">
+    {{comment.body|linebreaks}}
+    </div>
+  {%endfor%}
+{%else%}
+
+  <p id="comments">There Are No Comments Yet!!!</p>
+{%endif%}
+{%if comment_submit%}
+  <h2>Your Comment Added Successfully</h2>
+{%else%}
+  <h3>Please Fill The Form To Comment on "{{post.title|title}}"</h3>
+  <form method="post">
+    {{form.as_p}}
+    {%csrf_token%}
+    <input type="submit" class="btn btn-success btn-lg" value="Submit Comment">
+  </form>
+{%endif%}
+{%endblock%}

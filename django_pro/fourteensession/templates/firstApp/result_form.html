@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% if request.session %}
+    <h1> result</h1>
+    <table>
+      {% for key,value in request.session.items %}
+      <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+      </tr>
+      {% endfor %}
+    {% endif %}
+    </table>
+
+  </body>
+</html>
